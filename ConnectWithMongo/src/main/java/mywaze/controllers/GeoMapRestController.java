@@ -28,7 +28,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping()
 @CrossOrigin(origins = "*")
-
 public class GeoMapRestController {
     @Autowired
     WazeMapper wazeMapper;
@@ -49,7 +48,6 @@ public class GeoMapRestController {
     public mywaze.dto.ETA newEta() {
         return new mywaze.dto.ETA();
     }
-
 
     @GetMapping(value = "/mvc/geoMap/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<RepresentationDto> geoMapListReact() {
@@ -85,7 +83,6 @@ public class GeoMapRestController {
                 .map(location -> transform(location, etaList))
                 .flatMap(e -> e.stream().distinct())
                 .collect(Collectors.toList());
-
         return res;
     }
 
